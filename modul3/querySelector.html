@@ -21,6 +21,50 @@
     </section>
   </div>
   <script>
+const data = [
+        {
+            "id": 7,
+            "email": "michael.lawson@reqres.in",
+            "first_name": "Michael",
+            "last_name": "Lawson",
+            "avatar": "https://reqres.in/img/faces/7-image.jpg"
+        },
+        {
+            "id": 8,
+            "email": "lindsay.ferguson@reqres.in",
+            "first_name": "Lindsay",
+            "last_name": "Ferguson",
+            "avatar": "https://reqres.in/img/faces/8-image.jpg"
+        },
+        {
+            "id": 9,
+            "email": "tobias.funke@reqres.in",
+            "first_name": "Tobias",
+            "last_name": "Funke",
+            "avatar": "https://reqres.in/img/faces/9-image.jpg"
+        },
+        {
+            "id": 10,
+            "email": "byron.fields@reqres.in",
+            "first_name": "Byron",
+            "last_name": "Fields",
+            "avatar": "https://reqres.in/img/faces/10-image.jpg"
+        },
+        {
+            "id": 11,
+            "email": "george.edwards@reqres.in",
+            "first_name": "George",
+            "last_name": "Edwards",
+            "avatar": "https://reqres.in/img/faces/11-image.jpg"
+        },
+        {
+            "id": 12,
+            "email": "rachel.howell@reqres.in",
+            "first_name": "Rachel",
+            "last_name": "Howell",
+            "avatar": "https://reqres.in/img/faces/12-image.jpg"
+        }
+    ]
 
 let a1 = '1. Запустите скрипт и убедитесь, что в консоли выводится div с классом container\n'
 let a2 = '2. Поменяйте селектор в querySelector так, чтобы нашелся заголовок h1\n'
@@ -37,8 +81,32 @@ let a7 = '7. Возьмите массив из data из файла mod2-array-
     element = document.querySelector('h1');
     console.log(a2 + element.innerHTML);
 
-    element = document.querySelector('section:nth-child(2)');
+    element = document.querySelector('section:nth-of-type(2) h2');
     console.log(a3 + element.innerHTML);
+
+    element = document.querySelector('section:nth-of-type(2) p');
+    console.log(a4 + element.innerHTML);
+
+    element = document.querySelector('strong');
+    element.innerHTML = 'NEW VALUE'
+    console.log(a5 + element.innerHTML);
+
+    element = document.querySelector('section:nth-of-type(2)');
+    element.innerHTML += `<img src='https://placekitten.com/200/100' alt=''>`
+    console.log(a6 + element.innerHTML);
+
+    console.log(a7);
+    element = document.querySelector('body');
+    marr = data.map( user=>`<div class="card card-user">
+    <img src="${user.avatar}" alt="${user.first_name} ${user.last_name}">
+    <h2>${user.first_name} ${user.last_name}</h2>
+    <p>Email: <a href="mailto:${user.email}">${user.email}</a></p>
+    <p><a href="/user/${user.id}">Подробней</a></p>
+  </div>`);
+    element.innerHTML += marr.join('')
+
+
+
   </script>
 </body>
 </html>
