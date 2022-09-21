@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Hello, world!</h1>
+    <section>
+      <h2>First heading</h2>
+      <p>Lorem, ipsum dolor.</p>
+      <p>Eum, dolorem vel.</p>
+    </section>
+    <section>
+      <h2>Second heading</h2>
+      <p>Lorem, ipsum dolor.</p>
+      <p>Eum, <strong>dolorem</strong> vel.</p>
+    </section>
+  </div>
+  <script>
+
+let a1 = '1. Запустите скрипт и убедитесь, что в консоли выводится div с классом container\n'
+let a2 = '2. Поменяйте селектор в querySelector так, чтобы нашелся заголовок h1\n'
+let a3 = '3. Поменяйте селектор в querySelector так, чтобы нашелся второй заголовок h2\n'
+let a4 = '4. Поменяйте селектор в querySelector так, чтобы нашелся первый параграф во второй секции\n'
+let a5 = '5. Найдите элемент strong и поменяйте ему свойство innerHTML. Изучите результат\n'
+let a6 = `6. Найдите вторую секцию и при помощи свойства innerHTML допишите текст "<img src='https://placekitten.com/200/100' alt=''>". В браузере должно появится изображение \n`
+let a7 = '7. Возьмите массив из data из файла mod2-array-methos/map.js и выведите все элементы из массива как верстку. Пример приведен в том же файле.\n'
+
+
+    let element = document.querySelector('.container');
+    console.log(a1 + element.innerHTML);
+
+    element = document.querySelector('h1');
+    console.log(a2 + element.innerHTML);
+
+    element = document.querySelector('section:nth-child(2)');
+    console.log(a3 + element.innerHTML);
+  </script>
+</body>
+</html>
