@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>Кнопка1</button>
+  <button>Кнопка2</button>
+  <button onclick="alertel(this)">Кнопка3</button>
+  <script>
+/* Напишите атрибуты onclick в каждой кнопке. Напишите функции, которые будут вызываться при нажатии каждой кнопки. Функции должны выводить соответствующие строки: "Кнопка1" или "Кнопка2"*/
+  button1 = document.querySelector('button:nth-of-type(1)');
+  button2 = document.querySelector('button:nth-of-type(2)');
+  function alertel(el){
+    alert(el.innerHTML);
+  }
+  alerttext = function(){
+    alert(this.innerText);
+  }
+  button1.onclick = alerttext;
+  button2.onclick = alerttext;
+  </script>
+</body>
+</html>
