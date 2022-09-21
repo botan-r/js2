@@ -104,9 +104,22 @@ let a7 = '7. Возьмите массив из data из файла mod2-array-
     <p><a href="/user/${user.id}">Подробней</a></p>
   </div>`);
     element.innerHTML += marr.join('')
-
-
-
+    cat = document.querySelector('img');
+    cat.style.border = '10px solid #fff';
+    cat.style.boxShadow = '0 0 5px #444';
+    cat.style.borderRadius = '5px';
+    cat.onclick = function(){
+      let i=0, step = 10, tick = 40;
+      self = this;
+      function a(){
+        if (i<step){
+          i++;
+          setTimeout(a,tick);
+          self.style.opacity = 1 - i/step;
+        }
+      }
+      a();
+    }
   </script>
 </body>
 </html>
