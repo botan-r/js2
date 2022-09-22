@@ -6,3 +6,15 @@ https://medium.com/nuances-of-programming/%D0%B1%D0%B5%D1%81%D0%BA%D0%BE%D0%BD%D
 https://vk.com/jsspec
 https://vk.com/phpspec
 https://tarasov.pro/open/
+https://tarasov.pro/read-js.html
+Читать по JavaScript
+MDN JavaScript
+Learn JavaScript
+(для тех, кому тяжело) JavaScript для детей. Самоучитель по программированию | Морган Ник
+(для тех, кому полегче) Изучаем программирование на JavaScript Фримен Эрик, Робсон Элизабет | Фримен Эрик, Робсон Элизабет
+(для тех кому норм) Дэвид Флэнаган: JavaScript. Полное руководство (7е издание)
+(для тех, кто ❤️ React ) React быстро. Веб-приложения на React, JSX, Redux и GraphQL Мардан Азат
+(для крутых) Секреты JavaScript ниндзя | Бибо Беэр, Марас Иосип
+(для очень крутых) Профессиональный TypeScript. Разработка масштабируемых JavaScript-приложений | Черный Борис
+(для тех, кто ❤️ Node) Веб-разработка с применением Node и Express. Полноценное использование стека JavaScript
+(для просветлённых) Как устроен JavaScript Крокфорд Дуглас

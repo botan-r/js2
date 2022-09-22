@@ -32,7 +32,7 @@
         <div class="row"><input type="text" name="param7"></div>
 
         <div class="row"><textarea name="param8" id="" cols="20" rows="5"></textarea></div>
-        <div class="row"><input type="checkbox" name="param9" required="True"> Согласны на всё</div>
+        <div class="row"><input type="checkbox" name="param9"> Согласны на всё</div>
 
         <div class="row"><input type="submit" ></div>
 
@@ -53,7 +53,7 @@
             elem.querySelectorAll('input[type=text]').forEach(fn);
             fn(elem.param8);
             if (elem.param9.checked==false){
-                    elem.param9.style.border = '1px solid red';
+                    elem.querySelectorAll('div')[8].style.border = '1px solid red';
                     toreturn = false;
                 }
             if (!toreturn) {
