@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="Добавить форму" onclick="addForm()"/>
+
+  <template id="form-search" >
+    <h2>Форма поиска</h2>
+    <form action="">
+      <input type="text" name="" >
+      <input type="submit" >
+    </form>
+  </template>
+
+  <script>
+ /*  1. Написать функцию addForm(), которая будет клонировать форму из шаблона <template> и добавлять её на странице. Форма должна отправлять запрос в поисковую систему так, чтобы последняя показывала результат поиска по запросу. Чтобы это сделать, откройте любую поисковую систему, отправьте запрос и изучите адресную строку.
+  */
+
+   function addForm(){
+     const clonetmpSearch = document.querySelector('#form-search').content.cloneNode(true)
+     clonetmpSearch.querySelector('form').action = 'https://yandex.ru/search'
+     clonetmpSearch.querySelector('input[type=text]').name = 'text'
+     document.body.appendChild(clonetmpSearch)
+   }
+  </script>
+</body>
+</html>
