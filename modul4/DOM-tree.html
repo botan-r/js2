@@ -64,25 +64,20 @@
     console.log(em.firstChild);
 
     tree = (node) => {
-      let out = new Object();
-      let currentel = out;
-      makecurrent = (node,current) =>{
-        if (node.nodeName!=''){
-          current.name = node.nodeName.replace("#","").toLowerCase();
-        }
-        if (node.nodeValue!=null){
-          current.value = node.nodeValue;
-        }
-        if (node.childNodes.length > 0 ){
-          let children = Array();
-          node.childNodes.forEach(childnode=>{
-            children.push(new Object())
-            makecurrent(childnode,children.at(-1));
-          });
-          current.children = children;
-        }
+      let out = {};
+      if (node.nodeName!=''){
+        out.name = node.nodeName.replace("#","").toLowerCase();
       }
-      makecurrent(node,out);
+      if (node.nodeValue!=null){
+        out.value = node.nodeValue;
+      }
+      if (node.childNodes.length > 0 ){
+        let children = [];
+        for (childnode of node.childNodes){
+          children.push(tree(childnode))
+        }
+        out.children = children;
+      }
       return out;
     }
     console.log(JSON.stringify(tree(document.querySelector('p')),null,2))
