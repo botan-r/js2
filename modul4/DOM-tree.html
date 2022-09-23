@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>просто <em>пример</em> текста</p>
+
+  <script>    
+    /* У вас есть ссылка на элемент <em> в одноименной константе em.
+    1. Найдите ссылку на
+    - текстовый узел со словом "просто"  
+    - текстовый узел со словом " текста"  
+    - текстовый узел со словом "пример"  
+    - родительский узел для em
+    - все дочерние узлы параграфа
+    - последний узел параграфа (сначала найти параграф, потом последний узел параграфа)  
+
+    2. Поменяйте программно слово "пример" на "изучение"
+
+    3*. Напишите рекурсивную функцию tree(node), которая на вход получает DOM-узел и далее строит древовидный объект со структурой DOM-дерева. Например, для указанного параграфа, вызов tree(document.querySelector('p')) может вернуть структуру
+      {
+        name: 'p',
+        children: [
+          {name: 'text', value: 'просто '},
+          {
+            name: 'em',
+            children: [
+              {name: 'text', value: 'пример'},
+            ]
+          },
+          {name: 'text', value: ' текста'},
+        ]
+      }
+
+      */
+    let em = document.querySelector('em');
+    //- текстовый узел со словом "просто"  
+    //console.log(em.parentNode.childNodes[0]);
+    console.log(em.previousSibling);
+
+    //- текстовый узел со словом " текста"  
+    //console.log(em.parentNode.childNodes[2]);
+    console.log(em.nextSibling);
+
+    //- текстовый узел со словом "пример"  
+    //console.log(em.childNodes[0]);
+    console.log(em.firstChild);
+
+    //- родительский узел для em
+    console.log(em.parentNode);
+
+    //- все дочерние узлы параграфа
+    console.log(em.parentNode.childNodes);
+
+    //- последний узел параграфа (сначала найти параграф, потом последний узел параграфа)
+    //console.log(em.parentNode.childNodes[em.parentNode.childNodes.length-1]);
+    console.log(em.parentNode.lastChild);
+
+    em.childNodes[0].nodeValue = 'изучение'
+    console.log(em.firstChild);
+
+    tree = (node) => {
+      let out = new Object();
+      let currentel = out;
+      makecurrent = (node,current) =>{
+        if (node.nodeName!=''){
+          current.name = node.nodeName.replace("#","").toLowerCase();
+        }
+        if (node.nodeValue!=null){
+          current.value = node.nodeValue;
+        }
+        if (node.childNodes.length > 0 ){
+          let children = Array();
+          node.childNodes.forEach(childnode=>{
+            children.push(new Object())
+            makecurrent(childnode,children.at(-1));
+          });
+          current.children = children;
+        }
+      }
+      makecurrent(node,out);
+      return out;
+    }
+    console.log(JSON.stringify(tree(document.querySelector('p')),null,2))
+
+  </script>
+</body>
+</html>
