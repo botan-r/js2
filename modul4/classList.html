@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .success{
+      background: lightgreen;
+      color: #fff;
+      border: 0;
+      padding: 4px;
+      border-radius: 3px;
+    }
+
+  </style>
+</head>
+<body>
+  <button onclick="addClass()" >Добавить класс</button>
+  <script>
+   /* Внутри onclick написать код добавления кнопке класса success */
+    const addClass = () =>{
+      document.querySelectorAll('button').forEach(btn => {
+        btn.classList.add('success')
+    })
+   }
+  </script>
+  <hr />
+
+  <button onclick="removeClass()" class="success">Удалить класс</button>
+  <script>
+   /* Внутри onclick написать код удаления у кнопки класса success */
+  const removeClass = () => {
+    document.querySelectorAll('button').forEach(btn => {
+      btn.classList.remove('success')
+    })
+  }
+  </script>
+  <hr />
+
+  <button onclick="toggleClass()" >Переключить класс</button>
+  <script>
+   /* Внутри onclick написать код который добавил класс success если его нет у кнопки, но удалит класс если есть */
+   toggleClass = () => {
+    document.querySelectorAll('button').forEach(btn => {
+      btn.classList.toggle('success')
+      })
+    }
+  </script>
+  <hr />
+
+
+
+</body>
+</html>
