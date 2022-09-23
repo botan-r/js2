@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  <p>просто <em>пример</em> текста</p>
+  <p id="myp">просто <em>пример</em> текста</p>
 
   <script>    
     /* У вас есть ссылка на элемент <em> в одноименной константе em.
@@ -71,7 +71,7 @@
       if (node.nodeValue!=null){
         out.value = node.nodeValue;
       }
-      if (node.childNodes.length > 0 ){
+      if (node.hasChildNodes()){
         let children = [];
         for (childnode of node.childNodes){
           children.push(tree(childnode))
