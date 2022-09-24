@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #test{
+      position: fixed;
+      width: 200px;
+      height: 200px;
+      background: lightyellow;
+      left: 200px;
+      top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id="test"></div>
+  <script>
+    
+    // 1. При помощи getBoundingClientRect() найти размер и позицию элемента с идентификатором test
+    const test = document.querySelector('#test');
+    let rect = test.getBoundingClientRect()
+    console.log(rect)
+
+    // 2. При помощи таймера анимировать перемещение элемента с идентификатором test по диагонали. Примечание: нужно менять стилевые свойства
+    test.style.position = 'fixed'
+    let x1 = rect.left, y1 = rect.top, width1 = rect.width
+    let timer1 = setInterval(()=>{
+      if ((x1>document.body.getBoundingClientRect().right-width1) | (y1 < 0)){
+        clearInterval(timer1)
+      }
+      test.style.left = x1++ +'px'
+      test.style.top = y1-- +'px'
+      test.style.transform = `rotate(${x1}deg)`
+    },40)
+    
+  </script>
+</body>
+</html>
