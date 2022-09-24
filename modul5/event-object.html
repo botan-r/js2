@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      height: 400px;
+      width: 400px;
+    }
+    .point{
+      background: rgb(57, 240, 51);
+      border-radius: 10px;
+      height: 20px;
+      width: 20px;
+      position: fixed;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <button>Нажать</button>
+
+  <script>
+    /* Назначьте элементу button обработчик showEventProps на нажатие (событие onclick). Внутри обработчика выведите все свойства объекта-события ev*/
+    let button = document.querySelector('button')
+    button.addEventListener('click',showEventProps)
+    document.body.addEventListener('click',addPoint) //mousemove
+
+    function showEventProps(ev){
+      for (let prop in ev) {
+        console.log(`${prop} = ${ev[prop]}`)
+      }
+
+    }
+    function addPoint(ev){
+      let point = document.createElement('div')
+      point.classList.add('point')
+
+      document.body.appendChild(point)
+
+      let {width,height} = point.getBoundingClientRect()
+      width /=2
+      height /=2
+
+      point.style.left = ev.clientX - width +'px'
+      point.style.top = ev.clientY - height + 'px'
+
+    }
+  </script>
+</body>
+</html>
