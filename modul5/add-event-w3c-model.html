@@ -29,19 +29,17 @@
        <button>В корзину</button>
      </div> 
   </div>
+
   <script>
+    //.conteiner>(.card*5>h2{Продукт$}+(p>lorem10)+button{В корзину})
     /* Есть функция addBasket. Назначить её как обработчик на все кнопки button, которые находятся внутри блоков с классом card. Примечание: перед выполнением нажмите первую кнопку и посмотрите как она работает - так должны работать другие кнопки. Закомментруйте код в 39-строке. В этом задании нужно использовать базовую модель событий */
     function addBasket(){
       const card = this.parentNode;
       const id = card.getAttribute('data-id');
       alert(`Добавлен товар ${id}`)
     }
-
-    document.querySelectorAll('.container .card button').forEach(
-      element => {
-        element.onclick = addBasket
-      }
-    )
+    //document.querySelector('button').addEventListener('click', addBasket)
+    document.querySelectorAll('.container .card button').forEach(el => el.addEventListener('click', addBasket))
   </script>
 </body>
 </html>
