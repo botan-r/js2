@@ -22,3 +22,6 @@ Learn JavaScript
 
 короткая нотация html
 https://docs.emmet.io/cheat-sheet/
+
+kahoot (Kahoot! stands with Ukraine, block russian users)
+https://ru.wikipedia.org/wiki/Kahoot!
