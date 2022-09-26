@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href='/some'>Нажать</a>
+
+  <script>
+    /* Попробуйте нажать на кнопку, убедитесь что происходит переход на несуществующий адрес. Назначьте элементу a обработчик fn на нажатие (событие onclick). Внутри обработчика выполните метод отмены действия по умолчанию preventDefault(), чтобы теперь не было перехода */
+    let a = document.querySelector('a')
+    a.addEventListener('click', fn)
+    function fn(ev){
+      ev.preventDefault()
+    }
+  </script>
+  <form action="https://yandex.ru/search">
+    <input type="hidden" name="text" value="ds">
+    <input type="submit" value="Нажать">
+  </form>
+  <script>
+    let form = document.querySelector('form')
+    form.addEventListener('click',fn)
+  </script>
+</body>
+</html>
