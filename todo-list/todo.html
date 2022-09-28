@@ -1,0 +1,65 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="todo">
+    <input type="text" class="input" placeholder="добавьте дело">
+    <h3>Список дел</h3>
+    <ul class="plan"></ul>
+    <h3>Выполненные дела</h3>
+    <ul class="done"></ul>
+  </div>
+
+  <script>
+    //получаем ссылки на основные элементы
+let 
+ todo = document.querySelector(".todo"),
+ input= document.querySelector(".todo input"),   
+ plan = document.querySelector(".todo .plan"),   
+ done = document.querySelector(".todo .done");
+
+//когда Enter - добавляем дело с список дел
+input.onchange = function (){
+  //создаём новое дело
+  let li = document.createElement("li");
+  li.innerHTML = this.value;
+  
+  //чистим поле ввода
+  this.value = "";
+  
+  //запоминаем что дело не выполнено
+  li.status = "plan";
+  
+  //меняем вид дела
+  li.onclick = function(){
+    this.className = this.status = this.status == "plan" ? "done" : "plan";
+    switch(this.status){
+      case "plan": plan.appendChild(this); break;
+      case "done": done.appendChild(this); break;
+    }
+  }
+  
+  //обрабатываем удаление дела
+  let a = document.createElement("a");
+  a.innerHTML = "Удалить";
+  a.href="#";
+  a.onclick = function (ev){
+    ev.preventDefault();
+    ev.stopPropagation();
+    this.parentNode.parentNode.removeChild(this.parentNode);
+  }
+  li.appendChild(a);
+  
+  //добавляем в соответствующий список
+  plan.appendChild(li);
+}
+  </script>
+</body>
+</html>

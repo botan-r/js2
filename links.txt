@@ -20,6 +20,9 @@ Learn JavaScript
 (для просветлённых) Как устроен JavaScript Крокфорд Дуглас
 
 
+todo list video
+https://www.youtube.com/watch?v=WFxOx3hKEhk
+
 короткая нотация html
 https://docs.emmet.io/cheat-sheet/
 Тренажер по emmet

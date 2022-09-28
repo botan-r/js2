@@ -1,0 +1,22 @@
+body{
+    font: 1em sans-serif;
+  }
+  .todo{   
+    width: 500px;
+    margin: auto;
+    font-size: 0.8em;
+   /* border: 1px solid #000;*/
+  }
+  .todo .input{
+    width: 100%;
+    font: 2em sans-serif;
+    box-sizing: border-box
+  }
+  .todo li.plan{
+  }
+  .todo li.done{
+    text-decoration: line-through;
+  }
+  .todo li a{
+    margin-left: 10px;
+  }
