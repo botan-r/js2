@@ -41,7 +41,14 @@
     /* Запустить скрипт в браузере, открыть консоль
     разработчика. В консоли написать код поиска кнопки и
     сгенерировать нажатие на кнопку. 
-    
+    https://stackoverflow.com/questions/35226807/trigger-click-event-on-parent-with-bubbling
+
+    Важно помнить, что всплытие bubbles по-умолчанию не true и событие не всплывает, поэтому надо это указывать, плюс ещё есть такой параметр isTrusted (если запускать скриптом событие и выполнять от имени пользователя, то он имеет разное значение)
+
+
+    selectedbtn = document.querySelector('button');
+
+    selectedbtn.dispatchEvent(new MouseEvent('click', {bubbles: true,}));
     
     */
     </script>
