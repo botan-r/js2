@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            background: rgba(92, 235, 154, 0.634);
+            padding: 20px;
+            margin: 20px;
+        }
+        .wrapper button{
+            font-display: inline-block;
+            margin: 5px, 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <button>Нажать 1</button>
+        <button>Нажать 2</button>
+    </div>
+    <script>
+        let wrapper = document.querySelector('.wrapper')
+        wrapper.addEventListener('click',function(ev) {
+            if (ev.target instanceof HTMLButtonElement){
+                alert(ev.target.innerText)
+                document.querySelector('button').dispatchEvent(new CustomEvent(ev.target.innerText,{
+                    detail: {
+                        x:10,
+                        st: "any string"
+                    }
+                }))
+            }
+        })
+        button = document.querySelector('button').addEventListener('Нажать 2',(ev)=>{
+            ev.target.innerText = 'Нажми теперь меня'
+        })
+
+    </script>
+</body>
+</html>
