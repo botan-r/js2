@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>lightbox</title>
+	<style>
+
+	* {
+	  font-family: Arial;
+	}
+	#gallery{
+	  width: 750px;
+	}
+	#gallery img{
+	  box-shadow: 0 0 2px #000;
+	  margin: 4px;
+	  border: 5px solid #fff;
+	}
+
+	#gallery img:hover{
+	  box-shadow: 0 0 7px #000;
+	}
+	#darkbox{
+	  background: rgba(0,0,0,.5);
+	}
+	#darkbox, #imgBox, #imgBox img {
+	  position: fixed;
+	  margin: auto;
+	  top: 0;
+	  left: 0;
+	  bottom: 0;
+	  right: 0;
+	}
+	#imgBox img {
+	  box-shadow: 0 0 10px #000;
+	  border: 5px solid #fff;
+	  border-radius: 5px;
+	}
+
+	</style>
+</head>
+<body>
+<div class="container">
+    <h1>Изображения</h1>
+    <div id="gallery">
+      <!--<img src="http://placehold.it/220x170" alt="" />
+      <img src="http://placehold.it/220x170" alt="" />
+      <img src="http://placehold.it/220x170" alt="" />
+      <img src="http://placehold.it/220x170" alt="" />
+      <img src="http://placehold.it/220x170" alt="" />   
+      <img src="http://placehold.it/220x170" alt="" />-->
+    </div>  
+  </div>  
+ <!-- <div id="darkbox"></div>
+  <div id="imgBox">
+  <img src="http://placehold.it/650x470" alt="" />
+  </div> -->
+<script>
+  let images = [
+    'cat1.jpg',
+    'cat2.jpg',
+    'cat3.jpg',
+    'cat4.jpg',
+    'cat5.jpg'  
+  ];
+  let gallery = document.querySelector("#gallery");
+  
+	//Создать изображения (из thumb) в #gallery при помощи document.createElement и .appendChild
+
+	for (let fname of images){
+		let imgcat = document.createElement('img')
+		imgcat.src = `./thumb/${fname}`
+		imgcat.fileName = fname
+		gallery.appendChild(imgcat)
+	}
+
+	//Добавить обработчик нажатия .addEventListener насобытие click так, чтобы при нажатии на изображениесрабатывал произвольный alert
+
+	gallery.addEventListener('click', (ev)=>{
+		if (ev.target instanceof HTMLImageElement){
+			//alert(ev.target.fileName)
+
+			//Создать контейнер с идентификатором #darkbox и присоединить его к body
+			const darkbox = document.createElement('div')
+			darkbox.id = 'darkbox'
+			document.body.appendChild(darkbox)
+
+			//Создать контейнер с идентификатором #imgBox и присоединить его к body. Внутри #imgBox должен быть создан элемент img с одноименным файлом из папки img
+			const imgBox = document.createElement('div')
+			imgBox.id = 'imgBox'
+			const catimg = document.createElement('img')
+			catimg.src = `./img/${ev.target.fileName}`
+			imgBox.appendChild(catimg)
+			document.body.appendChild(imgBox)
+
+			//Добавить таймер, который плавно поменяет opacity до 0 у #imgBox и при завершении вызовет удаление элементов darkbox и imgBox
+			imgBox.addEventListener('click', (ev) => {
+				let i=0, step=6, tick = 10
+				function a(){
+					if (i<step){
+						i++
+						catimg.style.opacity = 1-i/step
+						darkbox.style.opacity = 1-i/step
+						setTimeout(a, tick)
+					} else {
+						darkbox.opacity = 1
+						imgBox.remove()
+						darkbox.remove()
+					}
+				}
+				a()
+			})
+		}
+	})
+
+</script>
+
+</body>
+</html>
