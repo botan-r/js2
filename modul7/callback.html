@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="result"></div>
+  <script>
+    /* Переписать функцию sum, чтобы третим аргументом передавалась функция обратного вызова, которая примет результат
+    function sum(a,b){
+      return a + b;
+    }
+    */
+    function sum(a,b, fn){
+      fn(a + b)
+    }
+    /* т.е. нижележащий код должен заработать */
+    sum(10,450, res => console.log(res) )
+    sum(10,450, res => {
+      document.querySelector('#result').innerHTML = res
+    })
+
+  </script>
+</body>
+</html>
