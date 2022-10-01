@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="result"></div>
+  <script>
+    /* Переписать функцию sum, чтобы она возвращала промис с результатом */
+    function sum(a,b){
+      return new Promise(
+        (resolve, reject)=>{setTimeout(()=>(resolve(a+b)),2000);
+                            setTimeout(()=>reject(a+b),3000)}
+        )
+    }
+    
+    /* т.е. нижележащий код должен заработать */
+    sum(10,20)
+      .then( res => console.log('win:'+res) )
+      .catch( res=> console.log('loss:'+res))
+    
+    sum(10,20)
+      .then( (res) => {document.querySelector('#result').innerHTML = res},
+             (res) => {document.querySelector('#result').innerHTML = 'loss: '+res}
+            )
+ 
+
+  </script>
+</body>
+</html>
