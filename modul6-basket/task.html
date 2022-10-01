@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            border: 1px solid black;
+        }
+        .qty{
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Корзина</h1>
+        <table>
+            <tr>
+                <td>№ п/п</td>
+                <td>Название</td>
+                <td>Цена</td>
+                <td>Количество</td>
+                <td>Сумма</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Товар1</td>
+                <td>1000</td>
+                <td>
+                    <button>-</button>
+                    <input type="text" value="2" class = 'qty'>
+                    <button>+</button>
+                </td>
+                <td>2000</td>
+                <td><a href="#">Удалить</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Товар2</td>
+                <td>500</td>
+                <td>
+                    <button>-</button>
+                    <input type="text" value="3" class = 'qty'>
+                    <button>+</button>
+                </td>
+                <td>1500</td>
+                <td><a href="#">Удалить</a></td>
+            </tr>
+            <tr>
+                <td colspan="4">Итого:</td>
+                <td colspan="2">3500</td>
+
+            </tr>
+        </table>
+
+    </div>
+<script>
+    /* На основе данных
+    const items = [
+        {
+            uid: 234762814,
+            title: 'Товар1',
+            price: 1000,
+            qty: 2
+        },
+        {
+            uid: 1453224,
+            title: 'Товар2',
+            price: 500,
+            qty: 3
+        }
+    ]
+    - реализовать render в таблицу выше
+    - при нажатии на Удалить пункт удаляется и все пересчитывается
+    - при нажатии на + и - изменяется количество и пересчет выполняется
+    - при изменении input тоже пересчет
+
+    */
+</script>
+</body>
+</html>

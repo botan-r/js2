@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            border: 1px solid black;
+        }
+        .qty{
+            width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Корзина</h1>
+    <div id="basket", class="basket">
+    </div>
+<script src="basket.js"></script>
+<script>
+    /* На основе данных
+    const items = [
+        {
+            uid: 234762814,
+            title: 'Товар1',
+            price: 1000,
+            qty: 2
+        },
+        {
+            uid: 1453224,
+            title: 'Товар2',
+            price: 500,
+            qty: 3
+        }
+    ]
+    - реализовать render в таблицу выше
+    - при нажатии на Удалить пункт удаляется и все пересчитывается
+    - при нажатии на + и - изменяется количество и пересчет выполняется
+    - при изменении input тоже пересчет
+
+    */
+    items = [
+        {
+            uid: '234762814',
+            title: 'Товар1',
+            price: 1000,
+            qty: 2
+        },
+        {
+            uid: '1453224',
+            title: 'Товар2',
+            price: 500,
+            qty: 3
+        }
+    ]
+
+    basket(items,'#basket')
+
+</script>
+</body>
+</html>
