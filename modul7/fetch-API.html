@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>Получить список пользователей</button>
+  <div id="users"></div>
+  <script>
+    /* Назначить асинхронный обработчик для кнопки button, который через fetch API делает запрос на адрес https://jsonplaceholder.typicode.com/users и визуализирует произвольным способом данные внутри блока с идентификатором users */
+    const button = document.querySelector('button')
+    button.addEventListener('click',()=>{
+      const userdata = fetch('https://jsonplaceholder.typicode.com/users')
+        .then(response=>{
+          return response.json()})
+        .then(objlist=>{
+          const users = document.querySelector('#users')
+          users.innerHTML = ''
+          
+          objlist.forEach(item=>{
+            users.innerHTML += `
+            <div class="user">
+              <div class="name">${item.name}</div>
+              <div class="phone">${item.phone}</div>
+              <div class="email">${item.email}</div>
+            </div>
+            <hr/>
+            `
+          })
+        })
+    })
+  </script>
+</body>
+</html>
